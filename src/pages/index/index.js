@@ -5,7 +5,7 @@ import { connect } from '@tarojs/redux'
 import './index.scss'
 
 
-@connect(({ common }) => ({ common}))
+@connect(({ common, home }) => ({ common, home }))
 class Index extends Component {
 
     config = {
@@ -22,6 +22,11 @@ class Index extends Component {
     console.log(this.props)
    }
 
+  goToDemo = () => {
+    Taro.navigateTo({
+      url: '/pages/demo/index'
+    })
+  }
   componentDidHide () { }
 
   render () {
@@ -31,7 +36,7 @@ class Index extends Component {
         <Button className='dec_btn' onClick={this.props.dec}>-</Button>
         <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
         <View><Text>{this.props.counter.num}</Text></View>
-        <View><Text>Hello, World</Text></View>
+        <View onClick={this.goToDemo}><Text>Hello, World</Text></View>
       </View>
     )
   }

@@ -18,7 +18,7 @@ const dvaApp = dva.createApp({
   initialState: {},
   models: models,
   onError(e, dispatch) {
-    dispatch(action('sys/error', e))
+    dispatch(action('common/error', e))
   }
 })
 
@@ -28,7 +28,7 @@ class App extends Component {
 
   config = {
     pages: [
-      'pages/index/index'
+      'pages/index/index',
     ],
     window: {
       backgroundTextStyle: 'light',
