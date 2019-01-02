@@ -1,8 +1,9 @@
-import Taro, { Component } from '@tarojs/taro'
+import Taro, { Component, login } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 
 import './index.scss'
+
 
 
 @connect(({ common, home }) => ({ common, home }))
