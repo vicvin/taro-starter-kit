@@ -21,13 +21,13 @@ import './index.scss';
 @connect(({${dirName}}) => ({
   ...${dirName},
 }))
-export default class ${titleCase(dirName)} extends Component {
+class ${titleCase(dirName)} extends Component {
   config = {
     navigationBarTitleText: '${dirName}',
   };
  
   componentDidMount = () => {
- 
+    console.log('this.props is', this.props)
   };
  
   render() {
@@ -38,6 +38,8 @@ export default class ${titleCase(dirName)} extends Component {
     )
   }
 }
+
+export default ${titleCase(dirName)}
 `;
  
 // scss文件模版
@@ -54,7 +56,7 @@ const modelTep = `import * as ${dirName}Api from './service';
 export default {
   namespace: '${dirName}',
   state: {
- 
+    name: '${dirName}',
   },
  
   effects: {
@@ -84,7 +86,7 @@ const serviceTep = `import Request from '../../utils/request';
  
 export const ${dirName} = (data) => {
   return Request({
-    url: '路径',
+    url: '/${dirName}',
     method: 'POST',
     data,
   });

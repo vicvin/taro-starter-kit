@@ -30,6 +30,7 @@ class App extends Component {
     pages: [
       'pages/index/index',
       'pages/center/index',
+      'pages/detail/index',
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -45,13 +46,13 @@ class App extends Component {
       position: "bottom",
       list: [
         {
-          pagePath: "/pages/index/index",
+          pagePath: "pages/index/index",
           text:"首页",
           iconPath: "assets/images/tabbar/tab_index.png",
           selectedIconPath: "assets/images/tabbar/tab_index_selected.png",
         },
         {
-          pagePath: "/pages/center/index",
+          pagePath: "pages/center/index",
           text:"个人中心",
           iconPath: "assets/images/tabbar/tab_user.png",
           selectedIconPath: "assets/images/tabbar/tab_user_selected.png",

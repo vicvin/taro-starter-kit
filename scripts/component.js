@@ -30,7 +30,7 @@ class ${capPirName} extends Component {
   render() {
     return (
       <View className='fx-${dirName}-wrap'>
-
+        This is ${dirName} Component.
       </View>
     )
   }

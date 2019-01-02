@@ -20,14 +20,16 @@ class Index extends Component {
 
   componentDidShow () {
     console.log(this.props)
-   }
+  }
 
-  goToDemo = () => {
+  componentDidHide () { }
+
+  goToDemo = opt => {
+    console.log('opt', opt)
     Taro.navigateTo({
-      url: '/pages/demo/index'
+      url: '/pages/detail/index'
     })
   }
-  componentDidHide () { }
 
   render () {
     return (
@@ -35,7 +37,7 @@ class Index extends Component {
         <Button className='add_btn' onClick={this.props.add}>+</Button>
         <Button className='dec_btn' onClick={this.props.dec}>-</Button>
         <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
-        <View onClick={this.goToDemo}><Text>Hello, World</Text></View>
+        <View onClick={this.goToDemo.bind(this, "demo")}><Text>Hello, World</Text></View>
       </View>
     )
   }
