@@ -82,7 +82,7 @@ export default {
 // service页面模版
 const serviceTep = `import Request from '../../utils/request';
  
-export const demo = (data) => {
+export const ${dirName} = (data) => {
   return Request({
     url: '路径',
     method: 'POST',

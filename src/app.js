@@ -11,9 +11,9 @@ import './app.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
-// if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
-//   require('nerv-devtools')
-// }
+if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
+  require('nerv-devtools')
+}
 const dvaApp = dva.createApp({
   initialState: {},
   models: models,
@@ -29,12 +29,34 @@ class App extends Component {
   config = {
     pages: [
       'pages/index/index',
+      'pages/center/index',
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
+    },
+    tabBar: {
+      color: "#333333",
+      selectedColor: "#262626",
+      backgroundColor: "#ffce09",
+      borderStyle: "black",
+      position: "bottom",
+      list: [
+        {
+          pagePath: "/pages/index/index",
+          text:"首页",
+          iconPath: "assets/images/tabbar/tab_index.png",
+          selectedIconPath: "assets/images/tabbar/tab_index_selected.png",
+        },
+        {
+          pagePath: "/pages/center/index",
+          text:"个人中心",
+          iconPath: "assets/images/tabbar/tab_user.png",
+          selectedIconPath: "assets/images/tabbar/tab_user_selected.png",
+        }
+      ]
     }
   }
 
