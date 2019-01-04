@@ -1,5 +1,154 @@
-@import "../../styles/mixin";
+@import '../../styles/common.scss';
  
 .center-page {
-  @include wh(100%, 100%);
+  @include wh(100%, 100vh);
+  .avatar-wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 24px 30px;
+    background: #fff;
+    position: relative;
+    .nick{
+      font-weight: bold;
+      font-size: 32px;
+      padding-left: 30px;
+    }
+    &::after{
+      box-sizing: border-box;
+      content: "";
+      width: 13px;
+      height: 13px;
+      position: absolute;
+      top: 70px;
+      right: 30px;
+      border-top: 3px solid $color-gray-text;
+      border-right: 3px solid $color-gray-text;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+  
+  .order{
+    width: 100%;
+    height: 94px;
+    line-height: 94px;
+    color: $color-gray-title;
+    font-size: $font-s26;
+    position: relative;
+    background: #fff;
+    margin-top: 20px;
+    &::after{
+      position: absolute;
+      box-sizing: border-box;
+      content: "";
+      left: 0;
+      bottom: 0;
+      width: 690px;
+      height: 2px;
+      margin-left: 30px;
+      background-color: $color-gray-line;
+    }
+    .my-order{
+      float: left;
+      margin-left: 30px;
+    }
+    .all-order{
+      float: right;
+      font-size: $font-s24;
+      color: $color-gray-text;
+      margin-right: 50px;
+      position: relative;
+      &::after{
+        box-sizing: border-box;
+        content: "";
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        top: 40px;
+        right: -20px;
+        border-top: 3px solid $color-gray-text;
+        border-right: 3px solid $color-gray-text;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+  }
+  .icon-wrap{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    background: #fff;
+    .icon-item{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      font-size: $font-s22;
+      color: $color-gray-text;
+      .icon-img{
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20rx;
+      }
+    }
+  }
+  .more-wrap{
+    margin-top: 20px;
+    background: #fff;
+    .more-item {
+      position: relative;
+      padding: 24px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 28px;
+      &::after{
+        position: absolute;
+        box-sizing: border-box;
+        content: "";
+        left: 0;
+        bottom: 0;
+        width: 690px;
+        height: 2px;
+        margin-left: 30px;
+        background-color: $color-gray-line;
+      }
+      &:last-child::after{
+        background-color: #fff;
+      }
+      &::before{
+        box-sizing: border-box;
+        content: "";
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        top: 40px;
+        right: 30px;
+        border-top: 3px solid $color-gray-text;
+        border-right: 3px solid $color-gray-text;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+      .more-icon{
+        width: 44px;
+        height: 44px;
+        margin-right: 10px;
+      }
+    }
+  }
 }

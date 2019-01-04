@@ -1,4 +1,5 @@
 @mixin wh($vWidth, $vHeight){
   width: $vWidth;
   height: $vHeight;
+  background: #f8f8f8;
 }
