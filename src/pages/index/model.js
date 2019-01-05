@@ -1,9 +1,11 @@
 import * as indexApi from './service';
  
+const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout))
+
 export default {
   namespace: 'home',
   state: {
-    name: 'home',
+    num: 1
   },
  
   effects: {
@@ -16,6 +18,27 @@ export default {
           } });
       }
     },
+    *handleChange({ payload }, { put, select }) {
+      const { home } = yield select(state => state);
+      const { type } = payload;
+      console.log('type', type);
+      yield put({
+        type: 'save',
+        payload: {
+          num: type === 'add' ? home.num + 1 : home.num - 1
+        }
+      })
+    },
+    *asyncAdd(_, { put, call, select }) {
+      const { home } = yield select(state => state);
+      yield call(delay, 2000)
+      yield put({
+        type: 'save',
+        payload: {
+          num: home.num + 1
+        }
+      })
+    }
   },
  
   reducers: {

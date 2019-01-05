@@ -1,0 +1,76 @@
+@import '../../styles/common.scss';
+
+page {
+  @include wh(100%, 100vh);
+}
+.cate{
+  height: 100%;
+  .category-content{
+    display: flex;
+    .category-left{
+      // position: fixed;
+      width: 192px;
+      // height: 100%;
+      background: $color-gray-bg;
+      .left-list{
+        width: 100%;
+        .left-item{
+          width: 192px;
+          height: 94px;
+          line-height: 94px;
+          border-left: 8px solid $color-gray-bg;
+          font-size: $font-s26;
+          border-bottom: 2px solid $color-gray-line;
+          box-sizing: border-box;
+          &-text{
+            margin-left: 15px;
+          }
+        }
+        .active{
+          background: $color-white-text;
+          border-left: 8px solid $color-red-line;
+        }
+      }
+      ::-webkit-scrollbar{
+        width: 0;
+        height: 0;
+        color: transparent;
+      }
+    }
+    .category-right-scroll{
+      width: 558px;
+      // height: 100%;
+      float: right;
+      .category-right{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        font-size: $font-s26;
+        text-align: center;
+        .right-item{
+          width: 186px;
+          height: 190px;
+          text-align: center;
+          &-img{
+            width: 110px;
+            height: 110px;
+            display: block;
+            margin: 0 auto;
+          }
+          &-text{
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+    
+  }
+  .whiteView{
+    width: 750px;
+    height: 85px;
+  }
+}
+
+}

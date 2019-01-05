@@ -6,10 +6,10 @@ import './index.scss'
 
 
 
-@connect(({ common, home }) => ({ common, home }))
+@connect(({ common, home }) => ({ common, ...home }))
 class Index extends Component {
 
-    config = {
+  config = {
     navigationBarTitleText: '首页'
   }
 
@@ -28,16 +28,35 @@ class Index extends Component {
   goToDemo = opt => {
     console.log('opt', opt)
     Taro.navigateTo({
-      url: '/pages/detail/index'
+      url: '/pages/index/detail/index'
+    })
+  }
+
+  handleChange = type => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'home/handleChange',
+      payload: {
+        type,
+      }
+    })
+  }
+
+  asyncAdd = () => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'home/asyncAdd'
     })
   }
 
   render () {
+    const { num } = this.props;
     return (
       <View className='index'>
-        <Button className='add_btn' onClick={this.props.add}>+</Button>
-        <Button className='dec_btn' onClick={this.props.dec}>-</Button>
-        <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
+        <View><Text>当前显示：{num}</Text></View>
+        <Button className='add_btn' onClick={this.handleChange.bind(this, 'add')}>+</Button>
+        <Button className='dec_btn' onClick={this.handleChange.bind(this, 'dec')}>-</Button>
+        <Button className='dec_btn' onClick={this.asyncAdd}>async</Button>
         <View onClick={this.goToDemo.bind(this, "demo")}><Text>Hello, World</Text></View>
       </View>
     )

@@ -1,8 +1,8 @@
 import Request from '../../utils/request';
  
-export const detail = (data) => {
+export const category = (data) => {
   return Request({
-    url: '/detail',
+    url: '/category',
     method: 'POST',
     data,
   });

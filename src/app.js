@@ -29,8 +29,11 @@ class App extends Component {
   config = {
     pages: [
       'pages/index/index',
+      'pages/category/index',
+      'pages/cart/index',
       'pages/center/index',
-      'pages/detail/index',
+      'pages/index/album/index',
+      'pages/index/detail/index',
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -41,7 +44,7 @@ class App extends Component {
     tabBar: {
       color: "#333333",
       selectedColor: "#262626",
-      backgroundColor: "#ffce09",
+      backgroundColor: "#F8F8F8",
       borderStyle: "black",
       position: "bottom",
       list: [
@@ -52,12 +55,30 @@ class App extends Component {
           selectedIconPath: "assets/images/tabbar/tab_index_selected.png",
         },
         {
+          pagePath: "pages/category/index",
+          text: "分类",
+          iconPath: "assets/images/tabbar/tab_category.png",
+          selectedIconPath: "assets/images/tabbar/tab_category_selected.png"
+        },
+        {
+          pagePath: "pages/cart/index",
+          text: "购物车",
+          iconPath: "assets/images/tabbar/tab_cart.png",
+          selectedIconPath: "assets/images/tabbar/tab_cart_selected.png"
+        },
+        {
           pagePath: "pages/center/index",
           text:"个人中心",
           iconPath: "assets/images/tabbar/tab_user.png",
           selectedIconPath: "assets/images/tabbar/tab_user_selected.png",
         }
       ]
+    },
+    networkTimeout: {
+      request: 60000, // 单位 ms,下同
+      connectSocket: 60000,
+      uploadFile: 60000,
+      downloadFile: 60000,
     }
   }
 

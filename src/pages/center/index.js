@@ -60,7 +60,7 @@ class Center extends Component {
     ]
   }
   config = {
-    navigationBarTitleText: 'center',
+    navigationBarTitleText: '个人中心',
   };
  
   componentDidMount = () => {

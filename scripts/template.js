@@ -5,6 +5,7 @@
 const fs = require('fs');
  
 const dirName = process.argv[2];
+const childrenDirName = process.argv[3];
  
 if (!dirName) {
   console.log('文件夹名称不能为空！');
@@ -43,7 +44,12 @@ export default ${titleCase(dirName)}
 `;
  
 // scss文件模版
-const scssTep = `@import "../../styles/mixin";
+const scssTep = childrenDirName ? `@import "../../../styles/mixin";
+ 
+.${dirName}-page {
+  @include wh(100%, 100%);
+}
+`: `@import "../../styles/mixin";
  
 .${dirName}-page {
   @include wh(100%, 100%);
@@ -82,7 +88,16 @@ export default {
  
  
 // service页面模版
-const serviceTep = `import Request from '../../utils/request';
+const serviceTep = childrenDirName ? `import Request from '../../../utils/request';
+ 
+export const ${dirName} = (data) => {
+  return Request({
+    url: '/${dirName}',
+    method: 'POST',
+    data,
+  });
+};
+`:`import Request from '../../utils/request';
  
 export const ${dirName} = (data) => {
   return Request({
@@ -94,9 +109,13 @@ export const ${dirName} = (data) => {
 `;
  
  
- 
-fs.mkdirSync(`./src/pages/${dirName}`); // mkdir $1
-process.chdir(`./src/pages/${dirName}`); // cd $1
+if (childrenDirName) {
+  fs.mkdirSync(`./src/pages/${childrenDirName}/${dirName}`); // mkdir $1
+  process.chdir(`./src/pages/${childrenDirName}/${dirName}`); // cd $1
+} else {
+  fs.mkdirSync(`./src/pages/${dirName}`); // mkdir $1
+  process.chdir(`./src/pages/${dirName}`); // cd $1
+}
  
 fs.writeFileSync('index.js', indexTep);
 fs.writeFileSync('index.scss', scssTep);

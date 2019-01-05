@@ -1,0 +1,5 @@
+@import "../../../styles/mixin";
+ 
+.album-page {
+  @include wh(100%, 100%);
+}
