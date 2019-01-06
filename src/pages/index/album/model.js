@@ -1,3 +1,4 @@
+import Taro from '@tarojs/taro';
 import * as albumApi from './service';
  
 export default {
@@ -16,6 +17,9 @@ export default {
       if (checkTabNames.length <= 0) return;
       if (checkNames.length <= 0) return;
       const status = 'ok';
+      Taro.setNavigationBarTitle({
+        title: checkNames[0].text
+      })
       if (status === 'ok') {
         yield put({ 
           type: 'save',
